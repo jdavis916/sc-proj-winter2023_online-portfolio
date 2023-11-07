@@ -1,3 +1,11 @@
+*{
+  --main-font: 'Roboto', sans-serif;
+  --secondary-font: 'Oswald', sans-serif;
+  --main-color: white;
+  --secondary-color: #E9F1FA;
+  --accent-color: #00ABE4;
+  /*box-sizing: border-box;*/
+}
 body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
