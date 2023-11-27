@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   	msg: 'This is where your dashboard for the admins would go',
   	pageMainClass: 'pgAdminDashboard'
   });
-});
+})
+.post('/', function(req, res, next) {});
 
 module.exports = router;
