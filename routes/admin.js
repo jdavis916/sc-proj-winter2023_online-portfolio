@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
   	pageMainClass: 'pgAdminDashboard'
   });
 })
-.post('/', function(req, res, next) {});
+.post('/', function(req, res, next) {})
+.get('/login', function(req, res, next) {});
 
 module.exports = router;
