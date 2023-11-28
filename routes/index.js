@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+import * as stubs from '../backend/stubs/stubs.js';
 
 /* GET home page */
 router.get('/', function(req, res, next) {
-  res.render('index', { 
+	console.log(stubs);
+	res.render('index', { 
   	title: 'Simple Node Template',
   	msg: 'This sample template should help get you on your way.',
   	pageMainClass: 'pgHome'
