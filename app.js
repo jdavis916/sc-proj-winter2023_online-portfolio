@@ -1,3 +1,7 @@
+import { PrismaClient } from '@prisma/client';
+import { PrismaSessionStore } from '@quixo3/prisma-session-store';
+import session from 'express-session';
+
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -13,7 +17,7 @@ let {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access
 //import cors from 'cors';
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
-const userRouter = require('./routes/user');
+const userRouter = require('./routes/auth');
 
 var app = express();
 //database name
@@ -52,7 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use('/user', userRouter);
+app.use('/auth', userRouter);
 
 //CORS setup
 //app.use(cors());
@@ -61,6 +65,24 @@ app.use('/user', userRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+//session store
+app.use(session({
+	cookie:{
+		maxAge: 1000 * 60 * 60 * 24 // 1 day
+	},
+	secret: 'pizza is a vegetable and im tired of pretending its not',
+	resave: true,
+	saveUninitialized: true,
+	store: new PrismaSessionStore(
+		new PrismaClient(),
+		{
+			checkPeriod: 2 * 60 * 1000, //2 minutes
+			dbRecordIdIsSessionId: true,
+			dbRecordIdFunction: undefined
+		}
+	)
+}))
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -74,3 +96,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+

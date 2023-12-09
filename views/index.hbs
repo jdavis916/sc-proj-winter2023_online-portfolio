@@ -3,6 +3,14 @@
 		<div class="col-12">
 			<h1>{{title}}</h1>
 			<p>{{msg}}</p>
+			<ul>
+				{{#each jobs}}
+				<li>
+					<span>{{this.title}}</span>
+					<p>{{this.description}}</p>	
+				</li>
+				{{/each}}
+			</ul>
 		</div>
 	</section>	
 </main>

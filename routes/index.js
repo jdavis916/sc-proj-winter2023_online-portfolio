@@ -1,14 +1,18 @@
 var express = require('express');
 var router = express.Router();
-import * as stubs from '../backend/stubs/stubs.js';
+import stubs from "../backend/stubs/stubs.js";
 
 /* GET home page */
 router.get('/', function(req, res, next) {
 	console.log(stubs);
-	res.render('index', { 
+  res.render('index', { 
   	title: 'Simple Node Template',
   	msg: 'This sample template should help get you on your way.',
-  	pageMainClass: 'pgHome'
+  	pageMainClass: 'pgHome',
+	jobs: stubs.jobs,
+	user: stubs.user,
+	education: stubs.education,
+	interests: stubs.interests
   });
 })
 .get('/contact', function(req, res) {
@@ -19,6 +23,7 @@ router.get('/', function(req, res, next) {
 	});
 })
 .get('/login', function(req, res) {
+	console.log(req);
 	res.render('login', {
 	title: 'Login',
 	msg: 'This sample template should help get you on your way.',
@@ -29,7 +34,11 @@ router.get('/', function(req, res, next) {
 	res.render('profile', {
 	title: "Profile",
 	msg: 'This sample template should help get you on your way.',
-	pageMainClass:	"pgProfile"
+	pageMainClass:	"pgProfile",
+	jobs: stubs.jobs,
+	user: stubs.user,
+	education: stubs.education,
+	interests: stubs.interests
 	});
 })
 .get('/send-contact', function(req, res) {});
