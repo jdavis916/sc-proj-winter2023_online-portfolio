@@ -4,15 +4,14 @@ import stubs from "../backend/stubs/stubs.js";
 
 /* GET home page */
 router.get('/', function(req, res, next) {
-	console.log(stubs);
-  res.render('index', { 
-  	title: 'Simple Node Template',
-  	msg: 'This sample template should help get you on your way.',
-  	pageMainClass: 'pgHome',
-	jobs: stubs.jobs,
-	user: stubs.user,
-	education: stubs.education,
-	interests: stubs.interests
+  	res.render('index', { 
+		title: 'Simple Node Template',
+		msg: 'This sample template should help get you on your way.',
+		pageMainClass: 'pgHome',
+		jobs: stubs.jobs,
+		user: stubs.user,
+		education: stubs.education,
+		interests: stubs.interests
   });
 })
 .get('/contact', function(req, res) {
@@ -22,8 +21,8 @@ router.get('/', function(req, res, next) {
 	pageMainClass:	'pgContact'
 	});
 })
-.get('/login', function(req, res) {
-	console.log(req);
+.get('/signin', function(req, res) {
+	console.log(req.session);
 	res.render('login', {
 	title: 'Login',
 	msg: 'This sample template should help get you on your way.',

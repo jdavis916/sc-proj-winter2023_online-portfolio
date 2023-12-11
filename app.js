@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import session from 'express-session';
+import passport from 'passport';
+import config from './passport/passport.config.js';
 
 let createError = require('http-errors');
 let express = require('express');
@@ -48,6 +50,26 @@ app.engine('.hbs', exphbs({
 	defaultLayout: 'main'
 }));
 
+app.use(session({
+	cookie:{
+		maxAge: 1000 * 60 * 60 * 24 // 1 day
+	},
+	secret: 'pizza is a vegetable and im tired of pretending its not',
+	resave: true,
+	saveUninitialized: false,
+	store: new PrismaSessionStore(
+		new PrismaClient(),
+		{
+			checkPeriod: 2 * 60 * 1000, //2 minutes
+			dbRecordIdIsSessionId: true,
+			dbRecordIdFunction: undefined
+		}
+	)
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -65,24 +87,6 @@ app.use('/auth', userRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-//session store
-app.use(session({
-	cookie:{
-		maxAge: 1000 * 60 * 60 * 24 // 1 day
-	},
-	secret: 'pizza is a vegetable and im tired of pretending its not',
-	resave: true,
-	saveUninitialized: true,
-	store: new PrismaSessionStore(
-		new PrismaClient(),
-		{
-			checkPeriod: 2 * 60 * 1000, //2 minutes
-			dbRecordIdIsSessionId: true,
-			dbRecordIdFunction: undefined
-		}
-	)
-}))
 
 // error handler
 app.use(function(err, req, res, next) {
