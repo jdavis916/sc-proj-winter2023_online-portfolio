@@ -14,3 +14,16 @@ body {
 /*a {
   color: #00B7FF;
 }*/
+
+
+.profileSection {
+  margin-bottom: 20px;
+}
+
+h2, h3, h4 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+}
