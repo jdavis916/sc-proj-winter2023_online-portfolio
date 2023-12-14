@@ -1,2 +1,42 @@
 <main class="container-fluid {{pageMainClass}}">
+    <section class="row authForms">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Login</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false">Signup</button>
+        </li>
+        </ul>
+        <section class="row auths tab-content" id="myTabContent">
+            <form action="/auth/login" method="POST" class="col-12 tab-pane fade show active login" id="login" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
+                <label for="username" class="form-label">Email</label>
+                <input type="email" name="username" placeholder="Email" class="form-control mb-2" />
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" placeholder="Password" class="form-control mb-2" />
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <form action="/auth/signup" method="POST" class="col-12 tab-pane fade signup" id="signup" role="tabpanel" aria-labelledby="signup-tab" tabindex="0">
+                <label for="fname" class="form-label">First Name</label>
+                <input type="text" name="fname" placeholder="First Name"  class="form-control mb-2" />
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" name="lname" placeholder="Last Name"  class="form-control mb-2" />
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" placeholder="Email"  class="form-control mb-2" />
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" placeholder="Password"  class="form-control mb-2" />
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="location" placeholder="Location"  class="form-control mb-2" />
+                <label for="bio" class="form-label">Bio</label>
+                <textarea name="bio" placeholder="Bio" class="form-control mb-2" ></textarea>
+                <label for="Interests" class="form-label">What's your passion?</label>
+                <select name="Interests" class="form-select mb-2">
+                    {{#each interests}}
+                    <option value="{{this.name}}" name="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </section>
+    </section>
 </main>
