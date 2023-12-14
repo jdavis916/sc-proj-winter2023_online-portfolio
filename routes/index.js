@@ -13,7 +13,8 @@ router.get('/', function(req, res, next) {
 		jobs: stubs.jobs,
 		education: stubs.education,
 		interests: stubs.interests,
-		user: /*stubs.user*/ req.session.passport
+		user: /*stubs.user*/ req.session.passport,
+		fakeUser: stubs.user
   });
 })
 .get('/contact', function(req, res) {

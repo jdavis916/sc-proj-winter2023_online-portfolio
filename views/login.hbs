@@ -1,5 +1,5 @@
-<main class="container-fluid {{pageMainClass}}">
-    <section class="row authForms">
+<main class="container {{pageMainClass}}">
+    <section class="row authForms sectCard">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Login</button>
@@ -14,7 +14,7 @@
                 <input type="email" name="username" placeholder="Email" class="form-control mb-2" />
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" placeholder="Password" class="form-control mb-2" />
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn accentBtn">Login</button>
             </form>
             <form action="/auth/signup" method="POST" class="col-12 tab-pane fade signup" id="signup" role="tabpanel" aria-labelledby="signup-tab" tabindex="0">
                 <label for="fname" class="form-label">First Name</label>
@@ -35,7 +35,7 @@
                     <option value="{{this.name}}" name="{{this.name}}">{{this.name}}</option>
                     {{/each}}
                 </select>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn accentBtn">Sign Up</button>
             </form>
         </section>
     </section>
