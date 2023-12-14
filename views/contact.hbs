@@ -1,11 +1,15 @@
-<main class="container-fluid {{pageMainClass}}">
-    <section class="row contactPage">
-        {{#if contactCount}}
-        <span class="alert alert-primary">Please wait 24 hours before sending another message.</span>
+<main class="container {{pageMainClass}}">
+    {{#if contactCount}}
+        <div class="row alertFlag">
+            <span class="alert alert-primary">Please wait 24 hours before sending another message.</span>
+        </div>
         {{else}}
-        <span class="alert alert-success">Message Sent! (Limit 1 message every 24 hours)</span>
-        {{/if}}
-        <form action="/send-contact" method="POST" class="col-12 col-md-6 contactForm">
+        <div class="row alertFlag">
+            <span class="alert alert-success">Message Sent! (Limit 1 message every 24 hours)</span>
+        </div>
+    {{/if}}
+    <section class="row contactPage sectCard">
+        <form action="/send-contact" method="POST" class="col-12 col-sm-5 contactForm">
             <h2>Send Us a Message!</h2>
             <label for="name" class="form-label">Name</label>
             <input type="text" name="name" placeholder="Name" class="form-control mb-2" required/>
@@ -13,9 +17,9 @@
             <input type="email" name="email" placeholder="Email"  class="form-control mb-2" required/>
             <label for="message" class="form-label">Message</label>
             <textarea name="message" placeholder="Message" class="form-control mb-2" required></textarea>
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn accentBtn">Send</button>
         </form>
-        <article class="col-12 col-md-6 contactInfo">
+        <article class="col-12 col-sm-5 offset-sm-1 contactInfo">
             <h2>Contact Us</h2>
             <label>EmployBoard</label>
             <address>

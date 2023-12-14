@@ -1,45 +1,40 @@
-<main class="container-fluid {{pageMainClass}}">
-    <!--<section class="row">
-        <figure class="col-12">
-            <img src="inc/img/100-100.png"/>
-            <h2>{{user.0.fname}} {{user.0.lname}}</h2>
-            <span>{{user.0.occupation}}</span>
-            <figcaption>
+<main class="container {{pageMainClass}}">
+    <section class="row sectCard">
+        <figure class="col-12 d-flex userBio">
+            <img src="inc/img/250-250.png"/>
+            <figcaption class="p-2">
+                <h2>{{user.0.fname}} {{user.0.lname}}</h2>
+                <span>{{user.0.occupation}}</span>
                 <span>{{user.0.bio}}</span>
             </figcaption>
         </figure>
     </section>
     <hr />
-    <section class="row">
-        <h2 class="sectionTitle">Employment Experience</h2>
+    <section class="row sectCard">
+        <h3 class="sectionTitle">Employment Experience</h2>
         {{#each jobs}}
-        <figure class="col-12">
-            <h3>{{this.company_name}}</h3>
-            <span>{{this.start_date}} - {{this.end_date}}</span>
-            <figcaption>
-                <span>{{this.title}}</span>
-                <span>{{this.description}}</span>
-            </figcaption>
-        </figure>
+        <article class="col-12 job">
+            <span>{{this.title}}</span>
+            <span class="userInfoSpan">{{this.company_name}}</span>
+            <date class="userInfoSpan">{{this.start_date}} - {{this.end_date}}</date>
+            <span>{{this.description}}</span>
+        </article>
         {{/each}}
     </section>
     <hr />
-    <section class="row">
+    <section class="row sectCard">
         <h2 class="sectionTitle">Education</h2>
         {{#each education}}
-        <figure class="col-12">
-            <img />
+        <article class="col-12 education">
             <h3>{{this.name}}</h3>
             <span>{{this.start_date}} - {{this.end_date}}</span>
-            <figcaption>
-                <span>Major: {{this.major}}</span>
-                <span>Minor: {{this.minor}}</span>
-            </figcaption>
-        </figure>
+            <span>Major: {{this.major}}</span>
+            <span>Minor: {{this.minor}}</span>
+        </article>
         {{/each}}
     </section>
-</main>-->
-      <div class="row profileSection">
+</main>
+      <!--<div class="row profileSection">
             <section class="col">
                 <h2>Full Name</h2>
                 <p>Title</p>
@@ -78,4 +73,4 @@
 
             </section>
         </div>
-</main>
+</main>-->
