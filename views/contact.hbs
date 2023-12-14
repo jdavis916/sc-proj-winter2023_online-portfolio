@@ -1,2 +1,29 @@
 <main class="container-fluid {{pageMainClass}}">
+    <section class="row contactPage">
+        {{#if contactCount}}
+        <span class="alert alert-primary">Please wait 24 hours before sending another message.</span>
+        {{else}}
+        <span class="alert alert-success">Message Sent! (Limit 1 message every 24 hours)</span>
+        {{/if}}
+        <form action="/send-contact" method="POST" class="col-12 col-md-6 contactForm">
+            <h2>Send Us a Message!</h2>
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" placeholder="Name" class="form-control mb-2" required/>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" placeholder="Email"  class="form-control mb-2" required/>
+            <label for="message" class="form-label">Message</label>
+            <textarea name="message" placeholder="Message" class="form-control mb-2" required></textarea>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <article class="col-12 col-md-6 contactInfo">
+            <h2>Contact Us</h2>
+            <label>EmployBoard</label>
+            <address>
+                <span>1234 Main St.</span>
+                <span>City, State 12345</span>
+                <span>Phone: 123-456-7890</span>
+                <span>Email:employboard@gmail.com</span>
+            </address>
+        </article>
+    </section>
 </main>

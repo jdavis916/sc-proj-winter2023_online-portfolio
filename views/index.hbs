@@ -1,16 +1,24 @@
 <main class="container-fluid {{pageMainClass}}">
-	<section class="row">
-		<div class="col-12">
-			<h1>{{title}}</h1>
-			<p>{{msg}}</p>
-			<ul>
-				{{#each jobs}}
-				<li>
-					<span>{{this.title}}</span>
-					<p>{{this.description}}</p>	
-				</li>
-				{{/each}}
-			</ul>
-		</div>
+	<section class="row bio">
+		<h2 class="sectionTitle">EmployBoard</h2>
+		<p class="sectionText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi assumenda nisi, illo minus sunt possimus ad iusto reiciendis provident. Excepturi ut at facere odio voluptate ullam maiores nesciunt labore? Consequuntur.</p>
+	</section>	
+	<section class="row about">
+		<h2 class="sectionTitle">About</h2>
+		<p class="sectionText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, excepturi possimus dolorum nulla fugit eos. Suscipit fugit excepturi laborum ullam! Earum accusamus, sed dicta animi labore suscipit blanditiis ratione cumque?</p>
+	</section>	
+	<section class="row mission">
+		<h2 class="sectionTitle">Mission</h2>
+		<p class="sectionText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, accusantium maiores. Voluptatibus fugiat saepe tempora officia molestias facilis eum corrupti magnam fugit pariatur, excepturi magni reiciendis maxime dignissimos ut aliquam?</p>
+	</section>	
+	<section class="row example">
+		<figure>
+			<img src="inc/img/100-100.png"/>
+			<h3>{{user.0.fname}} {{user.0.lname}}</h3>
+			<span>{{user.0.occupation}}</span>
+			<figcaption>
+				<p>{{user.0.bio}}</p>
+			</figcaption>
+		</figure>
 	</section>	
 </main>

@@ -1,12 +1,11 @@
-import passport from 'passport';
 import crypto from 'crypto';
+import passport from 'passport';
 const prisma = require('../db/db');
 
 export const CreateUser = async (req, res) => {
     const salt = crypto.randomBytes(16);
     crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', async (err, hashedPw)=>{
-        if(err)return(err);
-        console.log(hashedPw, hashedPw.toString());
+        if(err)console.log(err);
         await prisma.users.create({
             data: {
                 email: req.body.email,
@@ -15,17 +14,14 @@ export const CreateUser = async (req, res) => {
                 fname: req.body.fname,
                 lname: req.body.lname,
                 location: req.body.location,
-                occupation: req.body.occupation,
+                occupation: '',
                 bio: req.body.bio,
-                photo: req.body.photo
+                photo: ''
             }
         });
+        req.login(req.body, function(err){
+            if(err) console.log(err);
+            res.redirect('/profile');
+        })
     })
-    //console.log(prisma.user);
-    /*const user = */
-    try{
-        res.send(user);
-    }catch(err){
-        res.send(err);
-    }
 }

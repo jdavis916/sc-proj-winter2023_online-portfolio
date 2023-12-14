@@ -4,13 +4,36 @@
   --main-color: white;
   --secondary-color: #E9F1FA;
   --accent-color: #00ABE4;
-  /*box-sizing: border-box;*/
+  box-sizing: border-box;
+  margin: 0;
 }
 body {
-  /*padding: 50px;*/
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: var(--main-font);
+}
+header, footer{
+  min-height: 10vh;
+  background-color: var(--secondary-color);
+}
+main{
+  min-height: 80vh;
+}
+h1,h2,h3{
+  font-family: var(--secondary-font);
+}
+.hambWrapper{
+  border-color: var(--accent-color);
+}
+.hamb{
+  background-image: url(
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 171, 228, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.accentBtn{
+  font: var(--secondary-font);
+  background-color: var(--accent-color);
+  color: var(--main-color);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-/*a {
-  color: #00B7FF;
-}*/

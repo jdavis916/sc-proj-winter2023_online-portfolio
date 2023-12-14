@@ -16,7 +16,7 @@ router.post('/login', passport.authenticate('local', {successRedirect: '/profile
         console.log(err)
     }
 })
-.post('/logout', function(req,res){
+.get('/logout', function(req,res){
     if(req.session){
         req.session.destroy();
         res.clearCookie('session-id');

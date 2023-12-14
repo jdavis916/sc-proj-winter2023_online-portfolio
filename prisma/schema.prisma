@@ -13,7 +13,7 @@ datasource db {
 model Users {
   id Int @id @default(autoincrement())
   email String @unique
-  password  @db.VarChar(64)
+  password String @db.VarChar(191)
   fname String
   lname String
   location String
@@ -21,7 +21,7 @@ model Users {
   bio String
   photo String
   education Educations?
-  salt Object @db.VarChar(64)
+  salt String @db.VarChar(191)
   jobs Jobs?
   interests Interests[]
 }
@@ -50,6 +50,7 @@ model Jobs {
 
 model Contacts {
   id Int @id @default(autoincrement())
+  name String
   email String @unique
   message String
 }
