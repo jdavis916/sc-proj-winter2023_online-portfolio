@@ -30,6 +30,10 @@ body > div{
   flex-direction: column;
   justify-content: space-between;
 }
+.logo{
+  width: 75px;
+  height: auto;
+}
 .sectCard{
   padding: 15px;
   box-shadow: 0px 2px 4px #898989;
